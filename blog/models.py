@@ -101,7 +101,7 @@ class Post(models.Model):
     
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name = 'comments')
-    author = models.ForeignKey(User, on_delete = models.CASCADE, releted_name = 'blog_comments')
+    author = models.ForeignKey(User, on_delete = models.CASCADE, related_name = 'blog_comments')
     parent = models.ForeignKey('self', on_delete = models.CASCADE, null = True, blank = True, related_name = 'replies')
 
     content = models.TextField()
@@ -125,7 +125,7 @@ class Comment(models.Model):
     
 
 class PostView(models.Model):
-    post = models.ForeignKey(Post, on_delete = models.CASCADE, releted_name = 'views')
+    post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name = 'views')
     ip_address = models.GenericIPAddressField()
     user_agent = models.TextField(blank = True)
     viewed_at = models.DateTimeField(auto_now_add = True)
