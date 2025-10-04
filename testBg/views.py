@@ -12,7 +12,7 @@ class TestClass:
         self.age = 21
 
 
-def test(request):
+def test(request, son):
     test_instance = TestClass()
     context = {
         'key': 'value',
@@ -36,6 +36,6 @@ def test(request):
         'key17': Exception('An error occurred'),
         'key18': iter([1, 2, 3]),
         'key19': slice(1, 5, 2),
-        'key20': property(lambda self: 'property value'),
+        'key20': son,
     }
     return render(request, 'testBg/test.html', context)

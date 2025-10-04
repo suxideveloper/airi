@@ -13,7 +13,10 @@
 <hr>
 {{ key3 }}, <br>
 <hr>
-{{ key4 }}, <br>
+{{ key4.0 }}, <br>
+<h6>test</h6>
+{{ key4.1 }}, <br>
+{{ key4.2 }}, <br>
 <hr>
 {{ key5.a }}, <br>
 <hr>
@@ -39,6 +42,13 @@
 {{ key18 }}, <br>
 {{ key19 }}, <br>
 {{ key20 }}
-{% endblock %}
 
-# ctrl + alt + up or down to move line
+{% if key20 > 0 %}
+bu son o dan katta buyerda html yoki shatt css kodlari yozish mumkin va shart buyicha berigan logika ishlaydi
+{% elif key20 == 0 %}
+bu son o dan teng
+{% else %}
+bu son o dan kichik yoki teng
+{% endif %}
+
+{% endblock %}
