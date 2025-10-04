@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'blog',
     'testBg',
 ]
-Error adding suxidev@gmail.com: email is already in use
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
