@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
+from blog.models import Tag
+from testBg import models
+
 # Create your views here.
 def kurish( request):
 
@@ -39,3 +42,32 @@ def test(request, son):
         'key20': son,
     }
     return render(request, 'testBg/test.html', context)
+
+
+
+
+def project(request, id):
+    # loyihalar ro'yxatini olish
+    projects = Project.objects.get(id=id)
+    taglar = Tag.objects.all().filter(name__length__lt=6)
+    project = Project.objects.filter(value='+')
+    
+
+    # kontekstga loyihalarni qo'shish
+    context = {
+        'projects': projects,
+        'taglar': taglar,
+    }
+
+    return render(request, 'your_template.html', context)
+
+def annotation_example():
+    """
+    Bu funksiya misol uchun yozilgan.
+    """
+    info = models.Model_of_Programmer.objects.annotation(
+        total_tags=models.Count('tags'),
+        avg_tag_length=models.Avg(models.Length('tags__name'))\
+                
+    )
+    return info     

@@ -44,11 +44,146 @@
 {{ key20 }}
 
 {% if key20 > 0 %}
-bu son o dan katta buyerda html yoki shatt css kodlari yozish mumkin va shart buyicha berigan logika ishlaydi
+bu son o dan katta buyerda html yoki shatt
+css kodlari yozish mumkin va shart buyicha berigan logika ishlaydi
 {% elif key20 == 0 %}
 bu son o dan teng
 {% else %}
 bu son o dan kichik yoki teng
 {% endif %}
 
+
+
+
+{% for i in key4 %}
+{{ i }} <br>
+{% endfor %}
+
+{% for i,n in key5.items %}
+<h1>Buyerda key5.items uzgartirib bulamaydi yanin items() default built-in function </h1>
+<h1>buyerda forni masalan db dan news kelayapti u list ni ichida dic type da buladi biz unin
+    viewsga ulab "lst: news " deb olamiz va for uchun 'for new in lst:' va new.title masalan new.data olishimisz mumkin
+    buni {{ new.title }}: {{ new.data| date:"Y-m-d" }} shunaqa methodlari ham bor </h1>
+
+
+
+{{ i }}: {{ n }} <br>
+{% endfor %}
+<h1>Buyerda men power shell bilan db dan amlumot chariqib ular bilan ishlashim kerak object.all()
+    object.filter(xususiyat = 'qiymati') filter query set qaytaradi esa object.get(xususiyat = 'qiymati') bu xususiyati
+    berigan qiymatga teng bo`lgan bitta object qaytaradi
+    object.create() object.delete() object.update() bularni ishlatishim kerak
+    Tag.objects.filter(name__contains='Django') bunday ham yozish mumkin
+    Tag.objects.filter(name__in=['Django', 'Python']) vasifasi qiymati shu ro'yxatda bo'lganlarni qaytaradi
+    Tag.objects.filter(name__gt='Django') bunday ham yozish mumkin vazifasi qiymati Django dan katta bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__lt='Django') bunday ham yozish mumkin vazifasi qiymati Django dan kichik bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__gte='Django') bunday ham yozish mumkin vazifasi qiymati Django dan katta yoki teng
+    bo'lganlarni qaytaradi
+    Tag.objects.filter(name__lte='Django') bunday ham yozish mumkin vazifasi qiymati Django dan kichik yoki teng
+    bo'lganlarni qaytaradi
+    Tag.objects.filter(name__startswith='Django') bunday ham yozish mumkin vazifasi qiymati Django bilan
+    boshlanadiganlarni qaytaradi
+    Tag.objects.filter(name__endswith='Django') bunday ham yozish mumkin vazifasi qiymati Django bilan tugaydiganlarni
+    qaytaradi
+    Tag.objects.filter(name__isnull=True) bunday ham yozish mumkin vazifasi qiymati null bo'lganlarni qaytaradi
+    Tag.objects.filter(name__isnull=False) bunday ham yozish mumkin vazifasi qiymati null bo'lmaganlarni qaytaradi
+    Tag.objects.filter(name__exact='Django') bunday ham yozish mumkin vazifasi qiymati Django ga teng bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__iexact='django') bunday ham yozish mumkin vazifasi qiymati django ga teng bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__icontains='django') bunday ham yozish mumkin vazifasi qiymati django ni o'z ichiga
+    olganlarni qaytaradi
+    Tag.objects.filter(name__search='django') bunday ham yozish mumkin vazifasi qiymati django ni qidiradiganlarni
+    qaytaradi
+    Tag.objects.filter(name__regex=r'^Django$') bunday ham yozish mumkin vazifasi qiymati Django bilan mos
+    keladiganlarni qaytaradi
+    Tag.objects.filter(name__iregex=r'^django$') bunday ham yozish mumkin vazifasi qiymati django bilan mos
+    keladiganlarni qaytaradi
+    Tag.objects.filter(name__length=6) bunday ham yozish mumkin vazifasi qiymati uzunligi 6 ga teng bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__length__gt=6) bunday ham yozish mumkin vazifasi qiymati uzunligi 6 dan katta bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__length__lt=6) bunday ham yozish mumkin vazifasi qiymati uzunligi 6 dan kichik bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__length__gte=6) bunday ham yozish mumkin vazifasi qiymati uzunligi 6 dan katta yoki teng
+    bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__length__lte=6) bunday ham yozish mumkin vazifasi qiymati uzunligi 6 dan kichik yoki teng
+    bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__length__exact=6) bunday ham yozish mumkin vazifasi qiymati uzunligi 6 ga teng bo'lganlarni
+    qaytaradi
+    Tag.objects.filter(name__length__iexact=6) bunday ham yozish mumkin
+    vazifasi qiymati uzunligi 6 ga teng bo'lganlarni qaytaradi
+    Tag.objects.filter(name__length__icontains=6) bunday ham yozish mumkin
+    vazifasi qiymati uzunligi 6 ni o'z ichiga olganlarni qaytaradi
+    Tag.objects.filter(name__length__search=6) bunday ham yozish mumkin
+    vazifasi qiymati uzunligi 6 ni qidiradiganlarni qaytaradi
+    Tag.objects.filter(name__length__regex=r'^6$') bunday ham yozish mumkin
+    vazifasi qiymati uzunligi 6 bilan mos keladiganlarni qaytaradi
+    Tag.objects.filter(name__length__iregex=r'^6$') bunday ham yozish mumkin
+    vazifasi qiymati uzunligi 6 bilan mos keladiganlarni qay taradi
+    Tag.objects.exclude(name__contains='Django') bunday ham yozish mumkin
+    vasifasi qiymati django ni o'z ichiga olmaganlarni qaytaradi
+    Tag.objects.exclude(name__in=['Django', 'Python']) vasifasi qiymati shu ro'yxatda bo'lmaganlarni qaytaradi
+    Tag.objects.exclude(name__gt='Django') bunday ham yozish mumkin vazifasi qiymati Django dan katta bo'lmaganlarni
+    qaytaradi
+    Tag.objects.exclude(name__lt= datetime(2022, 1, 1)) bunday ham yozish mumkin vazifasi qiymati 2022-01-01 dan
+    kichik bo'lmaganlarni qaytaradi
+    [ i.title, i.count for i in Tag.objects,filter(name__contains='Django') ] bunday ham yozish mumkin
+    vasifasi qiymati django ni o'z ichiga olganlarni qaytaradi le
+
+    bo`lsa faqat i.title yoki i.count ni qaytaradi
+    Tag.objects.order_by('name') bunday ham yozish mumkin vasifasi qiymati
+    name bo'yicha o'sish tartibida qaytaradi
+    Tag.objects.order_by('-name') bunday ham yozish mumkin vasifasi qiymati
+    name bo'yicha kamayish tartibida qaytaradi
+    Tag.objects.order_by('name', '-created_at') bunday ham yozish mumkin vas
+    ifasi qiymati name bo'yicha o'sish tartibida va created_at bo'yicha kamayish tartibida qaytaradi
+    Tag.objects.order_by('?') bunday ham yozish mumkin vasifasi qiymati tasodifiy tartibda qaytaradi
+    Tag.objects.order_by('name').reverse() bunday ham yozish mumkin vasifasi qiymati name bo'yicha kamayish tartibida
+    qaytaradi
+    Tag.objects.distinct() bunday ham yozish mumkin vasifasi qiymati takrorlanuvchi qiymatlarni olib tashlaydi
+    Tag.objects.count() bunday ham yozish mumkin vasifasi qiymati jami nechta object borligini qaytaradi
+    Tag.objects.exclude(name__contains='Django').count() bunday ham yozish mumkin vasifasi qiymati
+    django ni o'z ichiga olmagan objectlar sonini qaytaradi
+    Tag.objects.filter(name__contains='Django').count().order_by('-created_at') bunday ham yozish mumkin vazifasi
+    qiymati
+    django ni o'z ichiga olgan objectlar sonini qaytaradi va created_at bo'yicha kamayish tartibida qaytaradi
+    Tag.objects.filter(name__contains='Django').count().order_by('-created_at') bunday ham yozish mumkin vazifasi
+    qiymati
+    django ni o'z ichiga olgan objectlar sonini qaytaradi va created_at bo'yicha kamayish tartibida qaytaradi
+    Tag.objects.filter(name__contains='Django').first() bunday ham yozish mumkin vazifasi qiymati
+    django ni o'z ichiga olgan birinchi object ni qaytaradi
+    Tag.objects.filter(name__contains='Django').last() bunday ham yozish mumkin vazifasi qiymati
+    django ni o'z ichiga olgan oxirgi object ni qaytaradi
+    Tag.objects.filter(name__contains='Django')[0] bunday ham yozish mumkin vazifasi qiymati
+    django ni o'z ichiga olgan birinchi object ni qaytaradi
+    Tag.objects.filter(name__contains='Django')[:10] bunday ham yozish mumkin vazifasi qiymati
+    django ni o'z ichiga olgan birinchi 10 ta object ni qaytaradi
+    Tag.objects.create(name='Django') bunday ham yozish mumkin vasifasi qiymati
+    yangi object yaratadi va uni qaytaradi
+    Tag.objects.first()
+    for i in Tag.objects.all():
+    if i.name == 'Django':
+    i.delete() bunday ham yozish mumkin vasifasi qiymati
+    name i django ga teng bo'lgan object ni o'chiradi
+    Tag.objects.filter(name__contains='Django').delete() bunday ham yozish mumkin vasifasi qiymati
+    django ni o'z ichiga olgan objectlarni o'chir\
+
+
+</h1>
+
+
+<ul>
+    {% for i in key21 %}
+    <li><a href="{% url 'tag_detail' i.id %}">{{ i.name }}</a></li>
+    h1i bu yerda url ni ishlatish uchun biz urls.py da path('tag/<uuid:pk>/', views.tag_detail, name='tag_detail'),
+        bunday qilib name berib olamiz va shu name ni href da chaqirib olamiz va i.id ni beramiz chunki biz db dan
+        objectlarni chaqirib olyapmiz va har bir objectning id si bor
+        {% comment %} <li><a href="/tag/{{ i.id }}/">{{ i.name }}</a></li> {% endcomment %}
+        {% endfor %}
+</ul>
 {% endblock %}
